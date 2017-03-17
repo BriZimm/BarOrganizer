@@ -1,0 +1,37 @@
+    <button type="button" class="close" ng-click="cancel();">
+        <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+    </button>
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Ingredient : {{ingredient.name}}</h3>
+    </div>
+    <div class="modal-body">
+        <form name="product_form" class="form-horizontal" role="form" novalidate>
+
+            <form-element label="AMOUNT" mod="ingredient">
+                <select id="ingAmount" name="amount" class="form-control" placeholder="AMOUNT" style="width:150px" ng-model="ingredient.amount"/>
+                    <option ng-repeat="size in ingredientSizes" value="{{size.text}}">{{size.text}}</option>
+                </select>
+                <small class="errorMessage" ng-show="product_form.category.$dirty && product_form.category.$invalid"> Enter the Amount.</small>
+            </form-element>
+
+            <form-element label="NAME" mod="ingredient">
+                <input type="text" class="form-control" name="name" placeholder="NAME" ng-model="ingredient.name" ng-disabled="ingredient.id" focus/>
+            </form-element>
+
+            <div class="space"></div>
+            <div class="space-4"></div>
+            <div class="modal-footer">
+                <form-element label="">
+                    <div class="text-right">
+                        <a class="btn btn-sm" ng-click="cancel()"><i class="ace-icon fa fa-reply"></i>Cancel</a>
+                        <button ng-click="saveIngredient(ingredient);"
+                                ng-disabled="product_form.$invalid || enableUpdate"
+                                class="btn btn-sm btn-primary"
+                                type="submit">
+                            <i class="ace-icon fa fa-check"></i>{{buttonText}}
+                        </button>
+                    </div>
+                </form-element>
+            </div>
+        </form>
+    </div>  

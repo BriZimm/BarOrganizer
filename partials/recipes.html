@@ -1,0 +1,44 @@
+<h4 class="blog-post-title">Recipes</h4>
+<hr/>
+
+<div class="table-responsive">
+<div class="panel panel-primary">
+  <div class="panel-heading">Recipe Index
+      <div class="sw-search" >
+            <div class="nav-search" id="nav-search">
+                    Filter: <span class="input-icon">
+                        <input placeholder="Filter recipes list ..." class="nav-search-input" ng-model="filterRecipe" ng-change="resetLimit();"  autocomplete="off" type="text" style="width:300px;" focus>
+                        <i class="search-icon fa fa-search nav-search-icon"></i>
+                    </span>
+            </div>
+        </div>
+    </div>
+  <div class="panel-body">
+    <button type="button" class="btn btn-primary fa fa-plus" style="float:right; margin-bottom:10px;" ng-click="open(recipe);">&nbsp;Add New Recipe</button>
+    <table class="table table-striped">
+    <tr ng-show="recipes.length==0"><td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td></tr>
+    <tr ng-hide="recipes.length>-1">
+        <td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td>
+    </tr>
+    
+    <tr><th ng-repeat="c in columns" ng-style="{'text-align': (c.text == 'Name')? 'left': 'center'}">{{c.text}}</th></tr>
+    <tr ng-repeat="c in recipes" id="{{c.id}}" animate-on-change='c.id + c.name + c.image + c.description + c.rating + c.glass' ng-animate=" 'animate'"> <!--  | filter:filterRecipe | orderBy:'-id' -->
+        <td style="width:100px; text-align:center;">{{c.id}}</td>
+        <td style="width:200px">{{c.name}}</td>
+        <td style="width:100px; text-align:center;"><img class="img-thumbnail" alt="{{c.name}}" src="{{c.image}}"></td>
+        <td style="width:400px">{{c.description}}</td>
+        <td style="width:200px; text-align:center;vertical-align:middle;">
+            <span uib-rating ng-model="c.rating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></span>
+        </td>
+        <td style="width:100px; text-align:center;"><img id="glass_{{c.id}}" ng-model="c.glass" class="img-thumbnail" src="{{findGlass(c);}}"></td>
+        <td style="width:140px; text-align:center; vertical-align:middle;">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default fa fa-edit" ng-click="open(c);"></button>
+              <button type="button" class="btn btn-danger fa fa-trash-o" ng-click="deleteRecipe(c);"></button>
+            </div>
+        </td>
+    </tr>
+    </table>
+</div>
+</div>
+</div>

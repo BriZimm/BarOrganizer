@@ -1,0 +1,72 @@
+    <button type="button" class="close" ng-click="cancel();">
+        <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+    </button>
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}} : {{product.name}}</h3>
+    </div>
+    <div class="modal-body">
+        <form name="product_form" class="form-horizontal" role="form" novalidate>
+            <form-element label="Name" mod="product">
+                <input type="text" class="form-control" name="name" placeholder="Name" ng-model="product.name" ng-disabled="product.id" focus/>
+            </form-element>
+
+            <form-element label="Category" mod="product">
+                <input type="text" name="category" class="form-control" placeholder="Category" ng-model="product.category"/>
+                <small class="errorMessage" ng-show="product_form.category.$dirty && product_form.category.$invalid">Enter the Category.</small>
+            </form-element>
+
+            <form-element label="Description" mod="product">
+            <textarea class="form-control" name="description" placeholder="Description" ng-model="product.description">{{product.description}}</textarea>
+            </form-element>
+
+            <form-element label="Made in" mod="product">
+                <input type="text" name="made_in" class="form-control" placeholder="Made in" ng-model="product.made_in"/>
+                <small class="errorMessage" ng-show="product_form.made_in.$dirty && product_form.made_in.$invalid"> Enter where the item was made.</small>
+            </form-element>
+
+            <form-element label="Distillery" mod="product">
+                <input type="text" name="distillery" class="form-control" placeholder="Distillery" ng-model="product.distillery"/>
+                <small class="errorMessage" ng-show="product_form.distillery.$dirty && product_form.distillery.$invalid">Enter the name of the distillery.</small>
+            </form-element>
+
+            <form-element label="Size" mod="product">
+                <input type="text" name="stock" class="form-control" placeholder="Size" ng-model="product.size" only-numbers/>
+                <small class="errorMessage" ng-show="product_form.size.$dirty && product_form.size.$invalid">Enter the size of the product.</small>
+            </form-element>
+
+            <form-element label="Price" mod="product">
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" ame="price" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Price" ng-model="product.price"  only-numbers>
+                    <span class="input-group-addon">.00</span>
+                    <small class="errorMessage" ng-show="product_form.price.$dirty && product_form.price.$invalid"> Enter the price.</small>
+                </div>
+            </form-element>
+
+            <form-element label="Location" mod="product">
+                <input type="text" name="location" class="form-control" placeholder="Location" ng-model="product.location"/>
+                <small class="errorMessage" ng-show="product_form.location.$dirty && product_form.location.$invalid"> Enter the location in the bar area.</small>
+            </form-element>
+
+            <form-element label="Status" mod="product">
+                <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options" ng-model="product.status"></rzslider>
+            </form-element>
+
+            <div class="space"></div>
+            <div class="space-4"></div>
+            <div class="modal-footer">
+                <form-element label="">
+                    <div class="text-right">
+                        <a class="btn btn-sm" ng-click="cancel()"><i class="ace-icon fa fa-reply"></i>Cancel</a>
+                        <button ng-click="saveProduct(product);"
+                                ng-disabled="product_form.$invalid || enableUpdate"
+                                class="btn btn-sm btn-primary"
+                                type="submit">
+                            <i class="ace-icon fa fa-check"></i>{{buttonText}}
+                        </button>
+                    </div>
+                </form-element>
+            </div>
+        </form>
+    </div>
+

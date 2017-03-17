@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<body ng-cloak="">
+  <title>Home Bartender Web Application</title>
+  <meta name="Description" content="Product Manager Web Application created with AngularJS and PHP">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/6.0.1/rzslider.min.css"/>
+  <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="#!Inventory">Inventory</a>
+          <a class="blog-nav-item active" href="#!Recipes">Recipes</a>
+          <a class="blog-nav-item active" href="#!Ingredients">Ingredients</a>
+          <a class="blog-nav-item active" href="#!Library">Library</a>
+          <a class="blog-nav-item active" href="#!Conversions">Conversions</a>
+        </nav>
+      </div>
+    </div>
+
+<div class="container">
+    <div class="page-content">
+      <div ng-view="" id="ng-view"></div>
+    </div>
+</div>
+
+<!-- Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/6.0.1/rzslider.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+<script src="js/angular-rating.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload-shim.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- AngularJS custom codes -->
+<script src="app/app.js"></script>
+<script src="app/data.js"></script>
+<script src="app/service.js"></script>
+<script src="app/directives.js"></script>
+<script src="app/productsCtrl.js"></script>
+<script src="app/ingredientCtrl.js"></script>
+<script src="app/recipeCtrl.js"></script>
+
+
+<!-- Some Bootstrap Helper Libraries -->
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/underscore.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

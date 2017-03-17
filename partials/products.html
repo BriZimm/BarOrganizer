@@ -1,0 +1,47 @@
+<h4 class="blog-post-title">Product Inventory</h4>
+<hr/>
+
+<div class="table-responsive">
+<div class="panel panel-primary">
+  <div class="panel-heading">List of Inventory
+      <div class="sw-search" >
+            <div class="nav-search" id="nav-search">
+                    Filter: <span class="input-icon">
+                        <input placeholder="Filter products list ..." class="nav-search-input" ng-model="filterProduct" ng-change="resetLimit();"  autocomplete="off" type="text" style="width:300px;" focus>
+                        <i class="search-icon fa fa-search nav-search-icon"></i>
+                    </span>
+            </div>
+        </div>
+    </div>
+  <div class="panel-body">
+    <button type="button" class="btn btn-primary fa fa-plus" style="float:right; margin-bottom:10px;" ng-click="open(0);">&nbsp;Add New Product</button>
+    <table class="table table-striped">
+    <tr ng-show="products.length==0"><td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td></tr>
+    <tr ng-hide="products.length>-1">
+        <td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td>
+    </tr>
+    
+    <tr><th ng-repeat="c in columns">{{c.text}}</th></tr>
+    <tr ng-repeat="c in products" id="{{c.id}}" animate-on-change='c.name + c.category + c.size + c.price + c.location + c.made_in + c.distillery + c.description + c.status' ng-animate=" 'animate'"> <!--  | filter:filterProduct | orderBy:'id' -->
+        <td>{{c.id}}</td>
+        <td>{{c.name}}</td>
+        <td>{{c.category}}</td>
+        <td>{{c.size}}</td>
+        <td>${{c.price}}.00</td>
+        <td>{{c.location}}</td>
+        <td>{{c.made_in}}</td>
+        <td>{{c.distillery}}</td>
+        <td>{{c.description}}</td>
+        <td>{{c.status}}</td>
+        <td style="width:140px">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default fa fa-edit" ng-click="open(c);"></button>
+              <button type="button" class="btn btn-danger fa fa-trash-o" ng-click="deleteProduct(c);"></button>
+            </div>
+        </td>
+    </tr>
+    </table>
+</div>
+</div>
+</div>
+              

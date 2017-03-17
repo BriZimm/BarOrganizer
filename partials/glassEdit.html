@@ -1,0 +1,68 @@
+   <button type="button" class="close" ng-click="cancel();">
+        <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+    </button>
+    <div id="glasses">
+        <div class="modal-header">
+            <h3 class="modal-title">Select Glass:</h3>
+        </div>
+        <div class="modal-body">
+            <form name="product_form" class="form-horizontal" role="form" novalidate>
+                <table>
+                    <tr>
+                        <td><button type="submit" title="Beer Mug" ng-click="select(1);"><img class="img-thumbnail" src="images/beermug.jpg"></button></td>
+                        <td><button type="submit" title="Brandy Snifter" ng-click="select(2);"><img class="img-thumbnail" src="images/brandysnifter.jpg"></button></td>
+                        <td><button type="submit" title="Cocktail" ng-click="select(3);"><img class="img-thumbnail" src="images/cocktail.jpg"></button></td>
+                        <td><button type="submit" title="Cooler (faceted)" ng-click="select(4);"><img class="img-thumbnail" src="images/cooler_faceted.jpg"></button></td>
+                        <td><button type="submit" title="Cooler (tumbler)" ng-click="select(5);"><img class="img-thumbnail" src="images/cooler_tumbler.jpg"></button></td>
+                        <td><button type="submit" title="Cordial (footed)" ng-click="select(6);"><img class="img-thumbnail" src="images/cordial_footed.jpg"></button></td>
+                        <td><button type="submit" title="Cordial" ng-click="select(7);"><img class="img-thumbnail" src="images/cordial.jpg"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" title="Cosmo" ng-click="select(8);"><img class="img-thumbnail" src="images/cosmo.jpg"></button></td>
+                        <td><button type="submit" title="Coupe" ng-click="select(9);"><img class="img-thumbnail" src="images/coupe.jpg"></button></td>
+                        <td><button type="submit" title="Flute" ng-click="select(10);"><img class="img-thumbnail"  src="images/flute.jpg"></button></td>
+                        <td><button type="submit" title="Goblet (banquet)" ng-click="select(11);"><img class="img-thumbnail"  src="images/goblet_banquet.jpg"></button></td>
+                        <td><button type="submit" title="Goblet (teardrop)" ng-click="select(12);"><img class="img-thumbnail"  src="images/goblet_teardrop.jpg"></button></td>
+                        <td><button type="submit" title="Goblet" ng-click="select(13);"><img class="img-thumbnail"  src="images/goblet.jpg"></button></td>
+                        <td><button type="submit" title="Highball (footed)" ng-click="select(14);"><img class="img-thumbnail"  src="images/highball_footed.jpg"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" title="Highball (tumbler)" ng-click="select(15);"><img class="img-thumbnail"  src="images/highball_tumbler.jpg"></button></td>
+                        <td><button type="submit" title="Hurricance" ng-click="select(16);"><img class="img-thumbnail"  src="images/hurricane.jpg"></button></td>
+                        <td><button type="submit" title="Iced Tea (double)" ng-click="select(17);"><img class="img-thumbnail"  src="images/icetea_double.jpg"></button></td>
+                        <td><button type="submit" title="Iced tea (footed)" ng-click="select(18);"><img class="img-thumbnail"  src="images/icetea_footed.jpg"></button></td>
+                        <td><button type="submit" title="Iced Tea (tumbler)" ng-click="select(19);"><img class="img-thumbnail"  src="images/icetea_tumbler.jpg"></button></td>
+                        <td><button type="submit" title="Irish Coffee (footed)" ng-click="select(20);"><img class="img-thumbnail"  src="images/irishcoffee_footed.jpg"></button></td>
+                        <td><button type="submit" title="Irish Coffee" ng-click="select(21);"><img class="img-thumbnail"  src="images/irishcoffee.jpg"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" title="Margarita" ng-click="select(22);"><img class="img-thumbnail"  src="images/margarita.jpg"></button></td>
+                        <td><button type="submit" title="Pilsner (footed)" ng-click="select(23);"><img class="img-thumbnail"  src="images/pilsner_footed.jpg"></button></td>
+                        <td><button type="submit" title="Pilsner (weisen)" ng-click="select(24);"><img class="img-thumbnail"  src="images/pilsner_weisen.jpg"></button></td>
+                        <td><button type="submit" title="Pilsner" ng-click="select(25);"><img class="img-thumbnail"  src="images/pilsner.jpg"></button></td>
+                        <td><button type="submit" title="Mixing" ng-click="select(26);"><img class="img-thumbnail"  src="images/pint_mixing.jpg"></button></td>
+                        <td><button type="submit" title="Pint (pub)" ng-click="select(27);"><img class="img-thumbnail"  src="images/pint_pub.jpg"></button></td>
+                        <td><button type="submit" title="Pitcher" ng-click="select(28);"><img class="img-thumbnail"  src="images/pitcher.jpg"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" title="Poco Grande" ng-click="select(29);"><img class="img-thumbnail"  src="images/pocogrande.jpg"></button></td>
+                        <td><button type="submit" title="Rocks (double)" ng-click="select(30);"><img class="img-thumbnail"  src="images/rocks_double.jpg"></button></td>
+                        <td><button type="submit" title="Rocks (footed)" ng-click="select(31);"><img class="img-thumbnail"  src="images/rocks_footed.jpg"></button></td>
+                        <td><button type="submit" title="Rocks" ng-click="select(32);"><img class="img-thumbnail"  src="images/rocks.jpg"></button></td>
+                        <td><button type="submit" title="Sherry" ng-click="select(33);"><img class="img-thumbnail"  src="images/sherry.jpg"></button></td>
+                        <td><button type="submit" title="Shooters (double)" ng-click="select(34);"><img class="img-thumbnail"  src="images/shooters_double.jpg"></button></td>
+                        <td><button type="submit" title="Shooters" ng-click="select(35);"><img class="img-thumbnail"  src="images/shooters.jpg"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" title="Shot (marked)" ng-click="select(36);"><img class="img-thumbnail"  src="images/shot_marked.jpg"></button></td>
+                        <td><button type="submit" title="Shot" ng-click="select(37);"><img class="img-thumbnail"  src="images/shot.jpg"></button></td>
+                        <td><button type="submit" title="Tumbler" ng-click="select(38);"><img class="img-thumbnail"  src="images/tumbler.jpg"></button></td>
+                        <td><button type="submit" title="Wine (red)" ng-click="select(40);"><img class="img-thumbnail"  src="images/wine_red.jpg"></button></td>
+                        <td><button type="submit" title="Wine (standard)" ng-click="select(41);"><img class="img-thumbnail"  src="images/wine_standard.jpg"></button></td>
+                        <td><button type="submit" title="Wine (white)" ng-click="select(42);"><img class="img-thumbnail"  src="images/wine_white.jpg"></button></td>
+                        <td><button type="submit" title="Zombie" ng-click="select(43);"><img class="img-thumbnail"  src="images/zombie.jpg"></button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>  
+    </div>

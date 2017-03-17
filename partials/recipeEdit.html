@@ -1,0 +1,182 @@
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel();">
+        <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+    </button>
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Recipe : {{recipe.name}}</h3>
+    </div>
+    <div class="modal-body recipeModal" style="border-top:none;">
+        <div class="container" style="width:100%;">
+            <form name="recipe_form" class="form-horizontal" role="form" novalidate>
+                <div style="float:left; width:50%;">
+                    <form-element label="Name" mod="recipe">
+                        <input type="text" class="form-control" name="name" placeholder="NAME" ng-model="recipe.name" ng-disabled="recipe.id" focus/>
+                    </form-element>
+
+                    <form-element width="400px" label="Description" mod="recipe">
+                        <textarea class="form-control sized-textarea" name="description" placeholder="Description" ng-model="recipe.description" width="400px">{{recipe.description}}</textarea>
+                        <small class="errorMessage" ng-show="recipe_form.description.$dirty && recipe_form.description.$invalid"> Enter the Description.</small>
+                    </form-element>
+
+                    <form-element label="Ingredient" mod="recipe">
+                        <input type="text" name="ing1" class="form-control" width="200px" placeholder="ING1" ng-model="recipe.ing1"/>
+                        <small class="errorMessage" ng-show="recipe_form.ing1.$dirty && recipe_form.ing1.$invalid"> Ingredient 1.</small>
+                    </form-element>
+                    <form-element label="Ingredient" mod="recipe">
+                        <input type="text" name="ing2" class="form-control" width="200px" placeholder="ING2" ng-model="recipe.ing2"/> 
+                        <small class="errorMessage" ng-show="recipe_form.ing2.$dirty && recipe_form.ing2.$invalid"> Ingredient 2.</small>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(3) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing3" class="form-control" ng-model="recipe.ing3" aria-label="Ingredient3">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(3);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing3.$dirty && recipe_form.ing3.$invalid"> Ingredient 3.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(4) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing4" class="form-control" ng-model="recipe.ing4" aria-label="Ingredient4">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(4);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing4.$dirty && recipe_form.ing4.$invalid"> Ingredient 4.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(5) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing5" class="form-control" ng-model="recipe.ing5" aria-label="Ingredient5">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(5);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing5.$dirty && recipe_form.ing5.$invalid"> Ingredient 5.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(6) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing6" class="form-control" ng-model="recipe.ing6" aria-label="Ingredient6">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(6);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing6.$dirty && recipe_form.ing6.$invalid"> Ingredient 6.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(7) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing7" class="form-control" ng-model="recipe.ing7" aria-label="Ingredient7">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(7);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing7.$dirty && recipe_form.ing7.$invalid"> Ingredient 7.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(8) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing8" class="form-control" ng-model="recipe.ing8" aria-label="Ingredient8">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(8);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing8.$dirty && recipe_form.ing8.$invalid"> Ingredient 8.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(9) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing9" class="form-control" ng-model="recipe.ing9" aria-label="Ingredient9">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(9);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing9.$dirty && recipe_form.ing9.$invalid"> Ingredient 9.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(10) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing10" class="form-control" ng-model="recipe.ing10" aria-label="Ingredient10">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(10);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing10.$dirty && recipe_form.ing10.$invalid"> Ingredient 10.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(11) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing11" class="form-control" ng-model="recipe.ing11" aria-label="Ingredient11">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(11);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing11.$dirty && recipe_form.ing11.$invalid"> Ingredient 11.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(12) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing12" class="form-control" ng-model="recipe.ing12" aria-label="Ingredient12">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(12);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing12.$dirty && recipe_form.ing12.$invalid"> Ingredient 12.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(13) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing13" class="form-control" ng-model="recipe.ing13" aria-label="Ingredient13">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(13);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing13.$dirty && recipe_form.ing13.$invalid"> Ingredient 13.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(14) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing14" class="form-control" ng-model="recipe.ing14" aria-label="Ingredient14">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(14);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing14.$dirty && recipe_form.ing14.$invalid"> Ingredient 14.</small>
+                        </div>
+                    </form-element>
+                    <form-element ng-show="shouldIngredientBeShown(15) == true" label="Ingredient" mod="recipe">
+                        <div class="input-group">
+                          <input type="text" name="ing15" class="form-control" ng-model="recipe.ing15" aria-label="Ingredient15">
+                          <span class="input-group-addon"><a ng-click="hideIngredient(15);" class="glyphicon glyphicon-remove" style="color:red;background:none;border:none;"></a></span>
+                          <small class="errorMessage" ng-show="recipe_form.ing15.$dirty && recipe_form.ing15.$invalid"> Ingredient 15.</small>
+                        </div>
+                    </form-element>
+                    <form-element style="text-align:right">
+                        <button ng-click="listIngredients(true);"
+                                    class="btn btn-sm btn-default"
+                                    type="submit">
+                                <i class="ace-icon fa fa-plus"></i> Add Ingredient
+                            </button>
+                    </form-element>
+
+                    <form-element label="Instructions" mod="recipe">
+                        <textarea class="form-control sized-textarea" name="instructions" placeholder="Type Instructions here" ng-model="recipe.instructions" width="400px">{{recipe.instructions}}</textarea>
+                        <small class="errorMessage" ng-show="recipe_form.instructions.$dirty && recipe_form.instructions.$invalid"> Enter the Instructions for the Recipe.</small>
+                    </form-element>
+                </div>
+                <div style="float:right; width:50%;">
+                    <form-element mod="recipe">
+                        <img ng-show="recipe.image != null" ng-model="recipe.image" class="img-thumbnail" src="{{recipe.image}}" width="300px">
+                        <img ng-show="recipe.image == null" class="img-thumbnail" src="images/drinks/imageplaceholder.jpg" width="300px">
+
+                        <button type="file" ngf-select="upload($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                        Select File
+                        </button>
+                        <br><br>
+                        File:
+                        <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+                            <span class="progress" ng-show="f.progress >= 0">
+                                <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'">
+                                </div>
+                            </span> 
+                        </div>  
+                    </form-element>
+
+                    <form-element label="Glass" mod="recipe"></br>
+                    <img id="glass_{{recipe.id}}" ng-model="recipe.glass" class="img-thumbnail" src="">&nbsp;&nbsp;
+                    <button type="button" data-toggle="modal" ng-click="openGlass(recipe.glass);" class="btn btn-info">Select Glass</button>
+                    </form-element>
+
+                    <form-element label="Rating" mod="recipe">
+                    <span uib-rating ng-model="recipe.rating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></span>
+                    </form-element>
+                </div>
+                
+                <div class="space"></div>
+                <div class="space-4"></div>
+                <div class="modal-footer">
+                    <form-element label="">
+                        <div class="text-right btn-group" style="float:right;">
+                            <button ng-click="cancel();"
+                                    class="btn btn-sm btn-default"
+                                    type="submit">
+                                <i class="ace-icon fa fa-reply"></i> Cancel
+                            </button>
+                            <button ng-click="saveRecipe(recipe);"
+                                    ng-disabled="recipe_form.$invalid || enableUpdate"
+                                    class="btn btn-sm btn-primary"
+                                    type="submit">
+                                <i class="ace-icon fa fa-check"></i> {{buttonText}}
+                            </button>
+                        </div>
+                    </form-element>
+                </div>
+            </form>
+        </div>
+    </div>
+
