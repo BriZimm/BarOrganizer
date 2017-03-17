@@ -134,7 +134,7 @@
                         <img ng-show="recipe.image != null" ng-model="recipe.image" class="img-thumbnail" src="{{recipe.image}}" width="300px">
                         <img ng-show="recipe.image == null" class="img-thumbnail" src="images/drinks/imageplaceholder.jpg" width="300px">
 
-                        <button type="file" ngf-select="upload($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                        <!-- <button type="file" ngf-select="upload($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
                         Select File
                         </button>
                         <br><br>
@@ -144,7 +144,7 @@
                                 <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'">
                                 </div>
                             </span> 
-                        </div>  
+                        </div>   -->
                     </form-element>
 
                     <form-element label="Glass" mod="recipe"></br>
