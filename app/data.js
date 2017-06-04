@@ -5,11 +5,16 @@ app.factory("Data", ['$http', '$location',
 
         var obj = {};
 
-        obj.get = function (q) {
-            return $http.get(serviceBase + q).then(function (results) {
-                return results.data;
-            });
+        obj.get = function (q, object) {
+            return $http.get(serviceBase + q)
+             .then(function successCallback(results) {
+                  return results.data;
+              },
+              function errorCallback(results) {
+                  console.log(results);
+              });
         };
+        
         obj.post = function (q, object) {
             return $http.post(serviceBase + q, object).then(function (results) {
                 return results.data;

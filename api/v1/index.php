@@ -7,6 +7,7 @@ $app = new \Slim\Slim();
 $app = \Slim\Slim::getInstance();
 $db = new dbHelper();
 
+  
 /**
  * Database Helper Function templates
  */
@@ -93,7 +94,7 @@ $app->delete('/ingredient/:id', function($id) {
 // Recipes
 $app->get('/recipes', function() { 
     global $db;
-    $rows = $db->select("recipe","id,name,description,image,rating,glass,ing1,ing2,ing3,
+    $rows = $db->select("recipe","id,name,description,image,rating,glass,instructions,ing1,ing2,ing3,
                         ing4,ing5,ing6,ing7,ing8,ing9,ing10,ing11,ing12,ing13,ing14,ing15",array());
     echoResponse(200, $rows);
 });

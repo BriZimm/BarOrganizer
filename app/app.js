@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'rzModule', 'angular-rating', 'ngFileUpload']);
+var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'rzModule', 'angular-rating']);
 
 app.config(['$routeProvider',
   function($routeProvider) {
@@ -35,5 +35,9 @@ app.config(['$routeProvider',
     })
     .otherwise({
       redirectTo: '/'
-    });;
+    });
+}]);
+
+app.config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
 }]);

@@ -11,7 +11,7 @@ class dbHelper {
             $response["status"] = "error";
             $response["message"] = 'Connection failed: ' . $e->getMessage();
             $response["data"] = null;
-            //echoResponse(200, $response);
+            echoResponse(200, $response);
             exit;
         }
     }

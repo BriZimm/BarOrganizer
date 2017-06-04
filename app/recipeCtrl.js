@@ -24,6 +24,7 @@ app.controller('recipeCtrl', function ($scope, $uibModal, $filter, Data, recipeS
             });
         }
     };
+
     $scope.open = function (p,size) {
         var modalInstance = $uibModal.open({
           templateUrl: 'partials/recipeEdit.html',
@@ -126,8 +127,7 @@ app.controller('recipeCtrl', function ($scope, $uibModal, $filter, Data, recipeS
         document.getElementById("glass_" + c.id).src = $scope.glassList.find(x => x.value === c.glass.toString()).text;        
     };
 });
-
-app.controller('recipeEditCtrl', function ($scope, $uibModal, $uibModalInstance, item, Data, recipeSvc, ingredientSvc, Upload) {
+app.controller('recipeEditCtrl', function ($scope, $uibModal, $uibModalInstance, item, Data, recipeSvc, ingredientSvc) {
 
     recipeSvc.setRecipe(item);
     $scope.recipe = recipeSvc.getRecipe();
@@ -214,12 +214,12 @@ app.controller('recipeEditCtrl', function ($scope, $uibModal, $uibModalInstance,
     $scope.shouldIngredientBeShown = function(index) {
         var show = $scope.showIngredients.find(x => x.value === index.toString()).show;
         return show;
-    }
+    };
 
     var original = item;
     $scope.isClean = function() {
         return angular.equals(original, $scope.recipe);
-    }
+    };
 
     $scope.slider = {
       value: '3',
@@ -289,7 +289,7 @@ app.controller('recipeEditCtrl', function ($scope, $uibModal, $uibModalInstance,
     $scope.saveRecipe = function (recipe) {
         if ($scope.recipe_form.file.$valid && $scope.file) {
             $scope.upload($scope.file);
-        }
+        };
         recipe.uid = $scope.uid;
         if(recipe.id > 0){
             Data.put('recipe/'+recipe.id, recipe).then(function (result) {
@@ -301,7 +301,7 @@ app.controller('recipeEditCtrl', function ($scope, $uibModal, $uibModalInstance,
                     console.log(result);
                 }
             });
-        }else{
+        } else {
             Data.post('recipe/', recipe).then(function (result) {
                 if(result.status != 'error'){
                     var x = angular.copy(recipe);
@@ -310,9 +310,9 @@ app.controller('recipeEditCtrl', function ($scope, $uibModal, $uibModalInstance,
                     $uibModalInstance.close(x);
                 }else{
                     console.log(result);
-                }
+                };
             });
-        }
+        };
     };
 
     $scope.openGlass = function (p,size) {
@@ -346,7 +346,6 @@ app.controller('recipeEditCtrl', function ($scope, $uibModal, $uibModalInstance,
     // };
 
 });
-
 app.controller('glassEditCtrl', function ($scope, $uibModalInstance, item, Data, recipeSvc) {
 
     $scope.glass = angular.copy(item);
@@ -354,7 +353,7 @@ app.controller('glassEditCtrl', function ($scope, $uibModalInstance, item, Data,
     var original = item;
     $scope.isClean = function() {
         return angular.equals(original, $scope.glass);
-    }
+    };
 
     $scope.cancel = function () {
         $uibModalInstance.dismiss('Close');
@@ -368,3 +367,7 @@ app.controller('glassEditCtrl', function ($scope, $uibModalInstance, item, Data,
     };
 
 });
+
+
+
+
